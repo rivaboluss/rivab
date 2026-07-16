@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>幻想復古Rivaboluss | Mirage Revivalism</title>
+    <meta
+      name="description"
+      content="幻想復古Rivaboluss 的个人网站，展示绘画作品、音乐专辑与幻想复古风格视觉。"
+    />
+    <link rel="preload" href="display/headprofile.png" as="image" />
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <script defer charset="utf-8" src="site-data.js"></script>
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <div class="scroll-progress" aria-hidden="true"></div>
+    <div class="page-backdrop" aria-hidden="true">
+      <img id="site-background" src="display/headprofile.png" alt="" />
+      <div class="backdrop-shade"></div>
+    </div>
+    <a class="skip-link" href="#main">跳到主要内容</a>
+
+    <header class="site-header" aria-label="站点导航">
+      <a class="brand" href="#home" aria-label="回到首页">
+        <span class="brand-mark">Mirage Revivalism</span>
+        <span class="brand-name">幻想復古Rivaboluss</span>
+      </a>
+
+      <button
+        class="icon-button nav-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="site-nav"
+        aria-label="打开导航"
+      >
+        <i data-lucide="menu"></i>
+      </button>
+
+      <nav class="site-nav" id="site-nav">
+        <a href="#works">作品集</a>
+        <a href="#music">音乐</a>
+        <a href="#art">绘画</a>
+        <a href="#contact">联系</a>
+      </nav>
+
+      <button class="theme-toggle" type="button" aria-label="切换配色">
+        <i data-lucide="moon"></i>
+        <span>夜色</span>
+      </button>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="home" aria-labelledby="hero-title">
+        <div class="hero-inner">
+          <div class="hero-copy">
+            <p class="eyebrow">Music / Painting / Fantasy Retro</p>
+            <h1 id="hero-title">幻想復古Rivaboluss</h1>
+            <p>
+              以 miragerevivalism 的名字记录音乐、绘画和复古幻想世界。这里收纳专辑、钢琴作品、角色绘画、校园日常与不断延伸的个人视觉宇宙。
+            </p>
+            <div class="hero-actions" aria-label="主要入口">
+              <a class="button primary" href="#music">
+                <i data-lucide="disc-3"></i>
+                <span>音乐作品</span>
+              </a>
+              <a class="button secondary" href="#art">
+                <i data-lucide="brush"></i>
+                <span>绘画作品</span>
+              </a>
+            </div>
+          </div>
+
+          <aside class="profile-panel" aria-label="个人信息">
+            <img class="avatar" src="display/headprofile.png" alt="幻想復古Rivaboluss 头像" />
+            <div>
+              <p class="profile-kicker">网易云音乐</p>
+              <p class="profile-id">miragerevivalism</p>
+            </div>
+            <dl class="profile-stats">
+              <div>
+                <dt id="album-count">18</dt>
+                <dd>专辑</dd>
+              </div>
+              <div>
+                <dt id="track-count">60</dt>
+                <dd>曲目</dd>
+              </div>
+              <div>
+                <dt id="art-count">118</dt>
+                <dd>绘画</dd>
+              </div>
+            </dl>
+          </aside>
+        </div>
+
+        <div class="background-dock" aria-label="背景">
+          <div class="dock-label">
+            <i data-lucide="image"></i>
+            <span>背景</span>
+          </div>
+          <div class="background-list" id="background-list"></div>
+        </div>
+      </section>
+
+      <section class="section works-section" id="works" aria-labelledby="works-title">
+        <div class="section-inner">
+          <div class="section-heading split-heading">
+            <div>
+              <p class="eyebrow">Collection</p>
+              <h2 id="works-title">作品集</h2>
+            </div>
+            <div class="library-switch" role="tablist" aria-label="作品分类">
+              <button type="button" role="tab" aria-selected="true" data-library="music">
+                <i data-lucide="music-2"></i>
+                <span>音乐</span>
+              </button>
+              <button type="button" role="tab" aria-selected="false" data-library="art">
+                <i data-lucide="palette"></i>
+                <span>绘画</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="entry-grid">
+            <a class="entry-card music-entry" href="#music" data-library-link="music">
+              <img src="music/X.R.X-Again/56c74fcd0a58860df2a6f7df88bd10e8.png" alt="音乐作品封面" />
+              <div>
+                <p>Music</p>
+                <h3>音乐作品</h3>
+                <span>
+                  <i data-lucide="arrow-up-right"></i>
+                  进入专辑
+                </span>
+              </div>
+            </a>
+            <a class="entry-card art-entry" href="#art" data-library-link="art">
+              <img src="artworks/anime/icons/mix.png" alt="绘画作品封面" />
+              <div>
+                <p>Painting</p>
+                <h3>绘画作品</h3>
+                <span>
+                  <i data-lucide="arrow-up-right"></i>
+                  进入画廊
+                </span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section library-section is-active" id="music" data-library-panel="music" aria-labelledby="music-title">
+        <div class="section-inner">
+          <div class="section-heading split-heading">
+            <div>
+              <p class="eyebrow">Albums</p>
+              <h2 id="music-title">音乐作品</h2>
+            </div>
+            <p class="section-note">Rivaboluss / miragerevivalism</p>
+          </div>
+
+          <div class="music-layout">
+            <div class="album-rail" id="album-list" aria-label="专辑列表"></div>
+            <div class="album-detail" id="album-detail" aria-live="polite"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section library-section" id="art" data-library-panel="art" aria-labelledby="art-title">
+        <div class="section-inner">
+          <div class="section-heading split-heading">
+            <div>
+              <p class="eyebrow">Gallery</p>
+              <h2 id="art-title">绘画作品</h2>
+            </div>
+            <p class="section-note">Anime / Original / Days in TYUT</p>
+          </div>
+
+          <div class="art-layout">
+            <div class="art-categories" id="art-category-list" aria-label="绘画分类"></div>
+            <div class="art-gallery" id="art-gallery" aria-live="polite"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section contact-section" id="contact" aria-labelledby="contact-title">
+        <div class="section-inner contact-layout">
+          <div>
+            <p class="eyebrow">Contact</p>
+            <h2 id="contact-title">幻想、复古、旋律与图像</h2>
+            <p>
+              作品以幻想復古Rivaboluss 发布。你可以在网易云收听音乐作品，在 B 站查看动态，也可以通过邮箱联系我。
+            </p>
+          </div>
+          <div class="contact-actions" aria-label="联系入口">
+            <a
+              class="button primary"
+              href="https://music.163.com/#/artist?id=51532754"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <i data-lucide="radio"></i>
+              <span>网易云主页</span>
+            </a>
+            <a
+              class="button secondary"
+              href="https://space.bilibili.com/73474297?spm_id_from=333.1007.0.0"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <i data-lucide="tv"></i>
+              <span>B 站主页</span>
+            </a>
+            <a class="button secondary" href="mailto:Rivaboluss@163.com">
+              <i data-lucide="mail"></i>
+              <span>Rivaboluss@163.com</span>
+            </a>
+            <button class="button secondary" type="button" data-copy="Rivaboluss@163.com">
+              <i data-lucide="copy"></i>
+              <span>复制邮箱</span>
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <aside class="player-bar" id="player-bar" aria-label="音乐播放器">
+      <img id="player-cover" src="" alt="" />
+      <div class="player-meta">
+        <p id="player-album">选择专辑</p>
+        <strong id="player-title">尚未播放</strong>
+      </div>
+      <audio id="audio-player" controls preload="metadata"></audio>
+    </aside>
+
+    <div class="lightbox" id="art-lightbox" aria-hidden="true" role="dialog" aria-label="绘画展示">
+      <button class="icon-button lightbox-close" type="button" aria-label="关闭">
+        <i data-lucide="x"></i>
+      </button>
+      <button class="icon-button lightbox-prev" type="button" aria-label="上一张">
+        <i data-lucide="chevron-left"></i>
+      </button>
+      <figure class="lightbox-figure">
+        <img id="lightbox-image" src="" alt="" />
+        <figcaption>
+          <strong id="lightbox-title"></strong>
+          <span id="lightbox-count"></span>
+        </figcaption>
+      </figure>
+      <button class="icon-button lightbox-next" type="button" aria-label="下一张">
+        <i data-lucide="chevron-right"></i>
+      </button>
+    </div>
+
+    <footer class="site-footer">
+      <p>© 2026 幻想復古Rivaboluss.</p>
+      <a href="#home">返回顶部</a>
+    </footer>
+  </body>
+</html>
