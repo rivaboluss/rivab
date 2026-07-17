@@ -192,6 +192,51 @@
             <p>
               作品以幻想復古Rivaboluss 发布。你可以在网易云收听音乐作品，在 B 站查看动态，也可以通过邮箱联系我。
             </p>
+            <div class="hidden-profile">
+              <button
+                class="hidden-profile-toggle"
+                type="button"
+                data-hidden-profile-toggle
+                aria-expanded="false"
+                aria-controls="hidden-profile-panel"
+              >
+                <i data-lucide="id-card"></i>
+                <span>隐秘档案</span>
+                <i data-lucide="chevron-down"></i>
+              </button>
+              <div class="hidden-profile-panel" id="hidden-profile-panel" hidden>
+                <dl>
+                  <div>
+                    <dt>现居</dt>
+                    <dd>北京</dd>
+                  </div>
+                  <div>
+                    <dt>学校</dt>
+                    <dd>中国传媒大学</dd>
+                  </div>
+                  <div>
+                    <dt>来处</dt>
+                    <dd>山东人</dd>
+                  </div>
+                  <div>
+                    <dt>经历</dt>
+                    <dd>前乐队键盘手</dd>
+                  </div>
+                  <div>
+                    <dt>研究</dt>
+                    <dd>硕士研究领域聚焦 AIGC 和符号音乐</dd>
+                  </div>
+                  <div>
+                    <dt>口味</dt>
+                    <dd>喜欢吃垃圾食品</dd>
+                  </div>
+                  <div>
+                    <dt>黑箱</dt>
+                    <dd>内心阴暗，恶贯满盈</dd>
+                  </div>
+                </dl>
+              </div>
+            </div>
           </div>
           <div class="contact-actions" aria-label="联系入口">
             <a
@@ -226,6 +271,16 @@
     </main>
 
     <aside class="player-bar" id="player-bar" aria-label="音乐播放器">
+      <button
+        class="player-toggle"
+        id="player-toggle"
+        type="button"
+        aria-label="折叠播放器"
+        aria-controls="audio-player"
+        aria-expanded="true"
+      >
+        <i data-lucide="chevron-down"></i>
+      </button>
       <img id="player-cover" src="" alt="" />
       <div class="player-meta">
         <p id="player-album">选择专辑</p>

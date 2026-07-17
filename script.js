@@ -206,9 +206,27 @@
     const playerCover = $("#player-cover");
     const playerAlbum = $("#player-album");
     const playerTitle = $("#player-title");
+    const playerToggle = $("#player-toggle");
     if (!albumList || !detail || !audio) return;
 
     let activeAlbumIndex = 0;
+
+    const setPlayerCollapsed = (collapsed) => {
+      if (!player) return;
+
+      player.classList.toggle("is-collapsed", collapsed);
+      if (playerToggle) {
+        playerToggle.setAttribute("aria-expanded", String(!collapsed));
+        playerToggle.setAttribute("aria-label", collapsed ? "展开播放器" : "折叠播放器");
+        const icon = $("[data-lucide]", playerToggle);
+        if (icon) icon.setAttribute("data-lucide", collapsed ? "chevron-up" : "chevron-down");
+        refreshIcons();
+      }
+    };
+
+    playerToggle?.addEventListener("click", () => {
+      setPlayerCollapsed(!player?.classList.contains("is-collapsed"));
+    });
 
     const playTrack = (albumIndex, trackIndex) => {
       const album = data.music[albumIndex];
@@ -220,6 +238,7 @@
       if (playerAlbum) playerAlbum.textContent = album.title;
       if (playerTitle) playerTitle.textContent = track.title;
       player?.classList.add("is-visible");
+      setPlayerCollapsed(false);
       audio.play().catch(() => {});
     };
 
@@ -430,6 +449,18 @@
     });
   };
 
+  const setupHiddenProfile = () => {
+    const button = $("[data-hidden-profile-toggle]");
+    const panel = button ? $(`#${button.getAttribute("aria-controls")}`) : null;
+    if (!button || !panel) return;
+
+    button.addEventListener("click", () => {
+      const open = button.getAttribute("aria-expanded") !== "true";
+      button.setAttribute("aria-expanded", String(open));
+      panel.hidden = !open;
+    });
+  };
+
   document.addEventListener("DOMContentLoaded", () => {
     setupTheme();
     setupNav();
@@ -440,6 +471,7 @@
     renderMusic();
     renderArt();
     setupCopy();
+    setupHiddenProfile();
     refreshIcons();
   });
 })();
