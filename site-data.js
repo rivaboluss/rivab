@@ -6,7 +6,7 @@ window.RIVABOLUSS_DATA = {
     "email": "Rivaboluss@163.com",
     "neteaseUrl": "https://music.163.com/#/artist?id=51532754",
     "bilibiliUrl": "https://space.bilibili.com/73474297?spm_id_from=333.1007.0.0",
-    "avatar": "display/headprofile.png"
+    "avatar": "artworks/anime/mix/aicai3.png"
   },
   "backgrounds": [
     {
@@ -16,10 +16,6 @@ window.RIVABOLUSS_DATA = {
     {
       "name": "feilun",
       "src": "display/feilun.png"
-    },
-    {
-      "name": "headprofile",
-      "src": "display/headprofile.png"
     },
     {
       "name": "kuang3",

@@ -8,7 +8,7 @@
       name="description"
       content="幻想復古Rivaboluss 的个人网站，展示绘画作品、音乐专辑与幻想复古风格视觉。"
     />
-    <link rel="preload" href="display/headprofile.png" as="image" />
+    <link rel="preload" href="display/xiaying.png" as="image" />
     <link rel="stylesheet" href="styles.css" />
     <script defer src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
     <script defer charset="utf-8" src="site-data.js"></script>
@@ -17,7 +17,7 @@
   <body>
     <div class="scroll-progress" aria-hidden="true"></div>
     <div class="page-backdrop" aria-hidden="true">
-      <img id="site-background" src="display/headprofile.png" alt="" />
+      <img id="site-background" src="display/xiaying.png" alt="" />
       <div class="backdrop-shade"></div>
     </div>
     <a class="skip-link" href="#main">跳到主要内容</a>
@@ -73,7 +73,7 @@
           </div>
 
           <aside class="profile-panel" aria-label="个人信息">
-            <img class="avatar" src="display/headprofile.png" alt="幻想復古Rivaboluss 头像" />
+            <img class="avatar" src="artworks/anime/mix/aicai3.png" alt="幻想復古Rivaboluss 头像" />
             <div>
               <p class="profile-kicker">网易云音乐</p>
               <p class="profile-id">miragerevivalism</p>
@@ -205,36 +205,12 @@
                 <i data-lucide="chevron-down"></i>
               </button>
               <div class="hidden-profile-panel" id="hidden-profile-panel" hidden>
-                <dl>
-                  <div>
-                    <dt>现居</dt>
-                    <dd>北京</dd>
-                  </div>
-                  <div>
-                    <dt>学校</dt>
-                    <dd>中国传媒大学</dd>
-                  </div>
-                  <div>
-                    <dt>来处</dt>
-                    <dd>山东人</dd>
-                  </div>
-                  <div>
-                    <dt>兴趣</dt>
-                    <dd>自然，徒步，矿石，乐队，创作等</dd>
-                  </div>
-                  <div>
-                    <dt>研究</dt>
-                    <dd>聚焦 AIGC 和符号音乐</dd>
-                  </div>
-                  <div>
-                    <dt>口味</dt>
-                    <dd>喜欢吃垃圾食品</dd>
-                  </div>
-                  <div>
-                    <dt>黑箱</dt>
-                    <dd>内心阴暗，恶贯满盈</dd>
-                  </div>
-                </dl>
+                <p class="hidden-profile-text">
+                  山东人，传媒大学。<br />
+                  艺术创作，矿石，自然。<br />
+                  研究聚焦AIGC与符号音乐
+                  内心阴暗，恶贯满盈<br />
+                </p>
               </div>
             </div>
           </div>
@@ -287,6 +263,14 @@
         <strong id="player-title">尚未播放</strong>
       </div>
       <audio id="audio-player" controls preload="metadata"></audio>
+      <button
+        class="player-close"
+        id="player-close"
+        type="button"
+        aria-label="关闭播放器"
+      >
+        <i data-lucide="x"></i>
+      </button>
     </aside>
 
     <div class="lightbox" id="art-lightbox" aria-hidden="true" role="dialog" aria-label="绘画展示">

@@ -853,33 +853,11 @@ svg {
   display: none;
 }
 
-.hidden-profile-panel dl {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 10px;
-  margin: 0;
-}
-
-.hidden-profile-panel div {
-  min-width: 0;
-  padding: 10px 12px;
-  border: 1px solid rgba(255, 248, 235, 0.13);
-  border-radius: 6px;
-  background: rgba(255, 248, 235, 0.07);
-}
-
-.hidden-profile-panel dt {
-  margin: 0 0 2px;
-  color: rgba(255, 248, 235, 0.58);
-  font-size: 0.76rem;
-  text-transform: uppercase;
-}
-
-.hidden-profile-panel dd {
+.hidden-profile-text {
   margin: 0;
   color: #fff8eb;
   font-weight: 700;
-  line-height: 1.45;
+  line-height: 1.8;
   overflow-wrap: anywhere;
 }
 
@@ -898,7 +876,7 @@ svg {
   z-index: 85;
   width: min(920px, calc(100vw - 32px));
   display: grid;
-  grid-template-columns: 42px 58px minmax(120px, 1fr) minmax(260px, 0.95fr);
+  grid-template-columns: 42px 58px minmax(120px, 1fr) minmax(260px, 0.95fr) 42px;
   gap: 12px;
   align-items: center;
   padding: 12px;
@@ -927,7 +905,7 @@ svg {
 
 .player-bar.is-collapsed {
   width: min(560px, calc(100vw - 32px));
-  grid-template-columns: 42px 46px minmax(0, 1fr);
+  grid-template-columns: 42px 46px minmax(0, 1fr) 42px;
   padding: 8px 10px;
 }
 
@@ -948,6 +926,29 @@ svg {
 
 .player-toggle:hover,
 .player-toggle:focus-visible {
+  border-color: rgba(255, 248, 235, 0.38);
+  background: rgba(255, 248, 235, 0.16);
+  outline: none;
+}
+
+.player-close {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 1px solid rgba(255, 248, 235, 0.18);
+  border-radius: 6px;
+  background: rgba(255, 248, 235, 0.08);
+  color: #fff8eb;
+  cursor: pointer;
+  transition:
+    background 160ms ease,
+    border-color 160ms ease;
+}
+
+.player-close:hover,
+.player-close:focus-visible {
   border-color: rgba(255, 248, 235, 0.38);
   background: rgba(255, 248, 235, 0.16);
   outline: none;
@@ -1229,7 +1230,7 @@ svg {
     bottom: 0;
     left: 50%;
     width: calc(100vw - 24px);
-    grid-template-columns: 40px 54px minmax(0, 1fr);
+    grid-template-columns: 40px 54px minmax(0, 1fr) 40px;
   }
 
   .player-bar audio {
@@ -1238,7 +1239,7 @@ svg {
 
   .player-bar.is-collapsed {
     width: calc(100vw - 24px);
-    grid-template-columns: 40px 46px minmax(0, 1fr);
+    grid-template-columns: 40px 46px minmax(0, 1fr) 40px;
   }
 
   .player-bar img {
@@ -1276,10 +1277,6 @@ svg {
   .hidden-profile-toggle {
     width: 100%;
     justify-content: center;
-  }
-
-  .hidden-profile-panel dl {
-    grid-template-columns: 1fr;
   }
 
   .profile-panel {

@@ -207,9 +207,11 @@
     const playerAlbum = $("#player-album");
     const playerTitle = $("#player-title");
     const playerToggle = $("#player-toggle");
+    const playerClose = $("#player-close");
     if (!albumList || !detail || !audio) return;
 
     let activeAlbumIndex = 0;
+    let queue = [];
 
     const setPlayerCollapsed = (collapsed) => {
       if (!player) return;
@@ -228,18 +230,57 @@
       setPlayerCollapsed(!player?.classList.contains("is-collapsed"));
     });
 
-    const playTrack = (albumIndex, trackIndex) => {
+    const playTrack = (albumIndex, trackIndex, { autoplay = true, keepQueue = false } = {}) => {
       const album = data.music[albumIndex];
       const track = album?.tracks[trackIndex];
       if (!album || !track) return;
 
+      if (!keepQueue) queue = [];
       audio.src = track.src;
       if (playerCover) playerCover.src = album.cover;
       if (playerAlbum) playerAlbum.textContent = album.title;
       if (playerTitle) playerTitle.textContent = track.title;
       player?.classList.add("is-visible");
       setPlayerCollapsed(false);
-      audio.play().catch(() => {});
+      if (autoplay) audio.play().catch(() => {});
+    };
+
+    playerClose?.addEventListener("click", () => {
+      queue = [];
+      audio.pause();
+      player?.classList.remove("is-visible");
+    });
+
+    audio.addEventListener("ended", () => {
+      const next = queue.shift();
+      if (next) playTrack(next.albumIndex, next.trackIndex, { keepQueue: true });
+    });
+
+    const startDefaultPlaylist = () => {
+      const wanted = [
+        ["步stepS.O.S", "步"],
+        ["X.R.X-Again", "X.R.X-Again"],
+      ];
+      const found = wanted
+        .map(([albumTitle, trackTitle]) => {
+          const albumIndex = data.music.findIndex((album) => album.title === albumTitle);
+          const trackIndex =
+            data.music[albumIndex]?.tracks.findIndex((track) => track.title === trackTitle) ?? -1;
+          return albumIndex >= 0 && trackIndex >= 0 ? { albumIndex, trackIndex } : null;
+        })
+        .filter(Boolean);
+      if (!found.length) return;
+
+      queue = found.slice(1);
+      playTrack(found[0].albumIndex, found[0].trackIndex, { autoplay: false, keepQueue: true });
+
+      // 浏览器通常会拦截无声交互前的自动播放，失败时等用户首次点击/按键再开始
+      const beginPlayback = () => {
+        if (audio.paused) audio.play().catch(() => {});
+      };
+      beginPlayback();
+      window.addEventListener("pointerdown", beginPlayback, { once: true });
+      window.addEventListener("keydown", beginPlayback, { once: true });
     };
 
     const renderDetail = () => {
@@ -304,6 +345,7 @@
 
     renderAlbums();
     renderDetail();
+    startDefaultPlaylist();
   };
 
   const renderArt = () => {
